@@ -9,9 +9,9 @@ const TOTAL_ROWS = 10;
 type SegmentKey = "ward" | "block" | "district";
 
 type Config = {
-  ward: Candidate[];
-  block: Candidate[];
-  district: Candidate[];
+  ward?: Candidate[];
+  block?: Candidate[];
+  district?: Candidate[];
 };
 
 type AllConfigs = Record<string, Config>;
