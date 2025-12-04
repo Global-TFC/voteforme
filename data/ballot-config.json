@@ -1,0 +1,28 @@
+{
+  "brandso": {
+    "ward": [
+      {
+        "rowNumber": 3,
+        "name": "Muhammed Rinshad",
+        "photoUrl": "/rinshad.png",
+        "symbolUrl": "/football.png"
+      }
+    ],
+    "block": [
+      {
+        "rowNumber": 1,
+        "name": "Favas",
+        "photoUrl": "/favas.png",
+        "symbolUrl": "/football.png"
+      }
+    ],
+    "district": [
+      {
+        "rowNumber": 2,
+        "name": "Rabeeh",
+        "photoUrl": "/rabeeh.png",
+        "symbolUrl": "/football.png"
+      }
+    ]
+  }
+}
