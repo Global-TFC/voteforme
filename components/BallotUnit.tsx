@@ -101,11 +101,10 @@ export function BallotUnit({ slug }: BallotUnitProps) {
             <div className="flex items-center gap-2">
               <span>Ready</span>
               <span
-                className={`h-3 w-3 rounded-full border border-zinc-600 shadow-[0_0_0_1px_rgba(0,0,0,0.3)] ${
-                  sessionState === "ready"
-                    ? "bg-green-400"
-                    : "bg-green-900/60"
-                }`}
+                className={`h-3 w-3 rounded-full border border-zinc-600 shadow-[0_0_0_1px_rgba(0,0,0,0.3)] ${sessionState === "ready"
+                  ? "bg-green-400"
+                  : "bg-green-900/60"
+                  }`}
               />
             </div>
             <span className="text-[12px] font-semibold text-zinc-700">Ballot</span>
@@ -118,11 +117,10 @@ export function BallotUnit({ slug }: BallotUnitProps) {
                 setSegment("ward");
                 resetSession();
               }}
-              className={`h-8 rounded-full px-3 text-[11px] font-medium transition ${
-                segment === "ward"
-                  ? "bg-white text-slate-900 shadow-inner border border-slate-300"
-                  : "bg-slate-100 text-slate-600 shadow-[0_3px_6px_rgba(15,23,42,0.3)] border border-slate-200"
-              }`}
+              className={`h-8 rounded-full px-3 text-[11px] font-medium transition ${segment === "ward"
+                ? "bg-white text-slate-900 shadow-inner border border-slate-300"
+                : "bg-slate-100 text-slate-600 shadow-[0_3px_6px_rgba(15,23,42,0.3)] border border-slate-200"
+                }`}
             >
               Ward
             </button>
@@ -132,11 +130,10 @@ export function BallotUnit({ slug }: BallotUnitProps) {
                 setSegment("block");
                 resetSession();
               }}
-              className={`h-8 rounded-full px-3 text-[11px] font-medium transition ${
-                segment === "block"
-                  ? "bg-white text-slate-900 shadow-inner border border-slate-300"
-                  : "bg-slate-100 text-slate-600 shadow-[0_3px_6px_rgba(15,23,42,0.3)] border border-slate-200"
-              }`}
+              className={`h-8 rounded-full px-3 text-[11px] font-medium transition ${segment === "block"
+                ? "bg-white text-slate-900 shadow-inner border border-slate-300"
+                : "bg-slate-100 text-slate-600 shadow-[0_3px_6px_rgba(15,23,42,0.3)] border border-slate-200"
+                }`}
             >
               Block
             </button>
@@ -146,11 +143,10 @@ export function BallotUnit({ slug }: BallotUnitProps) {
                 setSegment("district");
                 resetSession();
               }}
-              className={`h-8 rounded-full px-3 text-[11px] font-medium transition ${
-                segment === "district"
-                  ? "bg-white text-slate-900 shadow-inner border border-slate-300"
-                  : "bg-slate-100 text-slate-600 shadow-[0_3px_6px_rgba(15,23,42,0.3)] border border-slate-200"
-              }`}
+              className={`h-8 rounded-full px-3 text-[11px] font-medium transition ${segment === "district"
+                ? "bg-white text-slate-900 shadow-inner border border-slate-300"
+                : "bg-slate-100 text-slate-600 shadow-[0_3px_6px_rgba(15,23,42,0.3)] border border-slate-200"
+                }`}
             >
               District
             </button>
@@ -182,7 +178,7 @@ export function BallotUnit({ slug }: BallotUnitProps) {
             className="flex items-center gap-2 rounded-full bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-green-700 active:scale-95"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
             </svg>
             Make Your Own
           </a>
@@ -217,11 +213,11 @@ export function BallotUnit({ slug }: BallotUnitProps) {
 
         {/* Share Modal */}
         {showShareModal && (
-          <div 
+          <div
             className="fixed inset-0 z-30 flex items-end justify-center bg-black/50"
             onClick={() => setShowShareModal(false)}
           >
-            <div 
+            <div
               className="w-full max-w-md rounded-t-2xl bg-white px-4 pb-8 pt-4 animate-slide-up"
               onClick={(e) => e.stopPropagation()}
             >
@@ -237,7 +233,7 @@ export function BallotUnit({ slug }: BallotUnitProps) {
                   </svg>
                 </button>
               </div>
-              
+
               <div className="grid grid-cols-4 gap-4">
                 {/* WhatsApp */}
                 <a
@@ -249,7 +245,7 @@ export function BallotUnit({ slug }: BallotUnitProps) {
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500">
                     <svg viewBox="0 0 24 24" fill="white" className="h-7 w-7">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
                   </div>
                   <span className="text-xs text-zinc-600">WhatsApp</span>
@@ -265,7 +261,7 @@ export function BallotUnit({ slug }: BallotUnitProps) {
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600">
                     <svg viewBox="0 0 24 24" fill="white" className="h-7 w-7">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                     </svg>
                   </div>
                   <span className="text-xs text-zinc-600">Facebook</span>
@@ -281,7 +277,7 @@ export function BallotUnit({ slug }: BallotUnitProps) {
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-black">
                     <svg viewBox="0 0 24 24" fill="white" className="h-6 w-6">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                   </div>
                   <span className="text-xs text-zinc-600">X</span>
@@ -330,29 +326,29 @@ export function BallotUnit({ slug }: BallotUnitProps) {
             <div className="w-full max-w-xs rounded-2xl bg-white px-4 py-4 text-center shadow-xl">
               <h2 className="mb-2 text-base font-semibold text-zinc-900">Thank you for voting</h2>
               {votedCandidate ? (
-                <div className="mb-3 flex items-center justify-center gap-3">
+                <div className="mb-3 items-center justify-center gap-3">
                   {votedCandidate.photoUrl && (
-                    <div className="relative h-12 w-12 overflow-hidden rounded border border-zinc-200 bg-zinc-100">
+                    <div className="relative overflow-hidden rounded border border-zinc-200 bg-zinc-100">
                       <img
                         src={votedCandidate.photoUrl}
                         alt={votedCandidate.name}
                         className="h-full w-full object-cover"
                       />
+                      <div className="absolute top-0 right-0 ">
+                        {votedCandidate.symbolUrl && (
+                          <img
+                            src={votedCandidate.symbolUrl}
+                            alt={`${votedCandidate.name} symbol`}
+                            className="h-12 w-12 rounded-full object-contain"
+                          />
+                        )}
+                      </div>
                     </div>
                   )}
-                  <div className="flex flex-col items-start">
+                  <div className="flex items-center justify-center py-3">
                     <span className="text-sm font-semibold text-zinc-900">
                       {votedCandidate.name}
                     </span>
-                    {votedCandidate.symbolUrl && (
-                      <div className="mt-1 flex items-center gap-1.5">
-                        <img
-                          src={votedCandidate.symbolUrl}
-                          alt={`${votedCandidate.name} symbol`}
-                          className="h-6 w-6 rounded bg-zinc-50 object-contain"
-                        />
-                      </div>
-                    )}
                   </div>
                 </div>
               ) : (
