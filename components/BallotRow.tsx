@@ -68,7 +68,7 @@ export function BallotRow({
 
       <div className={`flex items-center border-r border-zinc-300 bg-white px-2 ${hasCandidate ? 'min-h-16 py-2' : 'min-h-12 py-1'}`}>
         {hasCandidate ? (
-          <div className="flex w-full items-center gap-3">
+          <div className="flex w-full items-center gap-1">
             {candidate?.photoUrl ? (
               <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded border border-zinc-200 bg-zinc-100">
                 <Image
@@ -85,24 +85,24 @@ export function BallotRow({
               </div>
             )}
 
-            <div className="flex flex-1 flex-col justify-center">
-              <span className="text-[15px] font-semibold leading-tight text-zinc-800 break-words">
+            <div className="flex flex-col justify-center">
+              <span className="text-[13.5px] font-semibold leading-tight text-zinc-800 break-words">
                 {candidate?.name}
               </span>
             </div>
 
             {candidate?.symbolUrl ? (
-              <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded bg-zinc-50">
+              <div className="relative h-[72px] w-[72px] flex-shrink-0 overflow-hidden">
                 <Image
                   src={candidate.symbolUrl}
                   alt={`${candidate.name} symbol`}
                   fill
-                  className="object-contain p-0.5"
-                  sizes="40px"
+                  className="object-contain"
+                  sizes="72px"
                 />
               </div>
             ) : (
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded border border-dashed border-zinc-300 text-[9px] text-zinc-400">
+              <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded border border-dashed border-zinc-300 text-[9px] text-zinc-400">
                 Symbol
               </div>
             )}

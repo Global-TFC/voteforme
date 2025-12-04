@@ -16,9 +16,9 @@ type Candidate = {
 };
 
 type Config = {
-  ward: Candidate[];
-  block: Candidate[];
-  district: Candidate[];
+  ward?: Candidate[];
+  block?: Candidate[];
+  district?: Candidate[];
 };
 
 type AllConfigs = Record<string, Config>;
@@ -61,9 +61,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 
   const candidateNames = [
-    ...config.ward.map(c => c.name),
-    ...config.block.map(c => c.name),
-    ...config.district.map(c => c.name),
+    ...(config.ward || []).map(c => c.name),
+    ...(config.block || []).map(c => c.name),
+    ...(config.district || []).map(c => c.name),
   ].join(", ");
 
   const title = `Vote for Me - ${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
