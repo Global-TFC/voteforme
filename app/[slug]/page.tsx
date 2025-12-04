@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Get the first candidate from ward (or any segment) for the preview image
   const firstCandidate = config.ward?.[0] || config.block?.[0] || config.district?.[0];
   const baseUrl = getBaseUrl();
-  
+
   // Use the candidate's photo or a default OG image
   const ogImage = firstCandidate?.photoUrl
     ? `${baseUrl}${firstCandidate.photoUrl}`
@@ -66,14 +66,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...(config.district || []).map(c => c.name),
   ].join(", ");
 
-  const title = `Vote for Me - ${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
-  const description = candidateNames 
+  const title = `Vote for ${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
+  const description = candidateNames
     ? `Vote for: ${candidateNames}. Interactive Electronic Voting Machine Ballot Unit.`
     : "Interactive Electronic Voting Machine Ballot Unit";
+
+  // Determine the image type for favicon
+  const getImageType = (url: string) => {
+    if (url.endsWith('.png')) return 'image/png';
+    if (url.endsWith('.jpg') || url.endsWith('.jpeg')) return 'image/jpeg';
+    if (url.endsWith('.ico')) return 'image/x-icon';
+    if (url.endsWith('.svg')) return 'image/svg+xml';
+    return 'image/png'; // default
+  };
+
+  const faviconUrl = firstCandidate?.photoUrl || '/og-image.png';
+  const absoluteFaviconUrl = `${baseUrl}${faviconUrl}`;
 
   return {
     title,
     description,
+    icons: {
+      icon: [
+        { url: faviconUrl, type: getImageType(faviconUrl) },
+      ],
+      apple: [
+        { url: faviconUrl, type: getImageType(faviconUrl) },
+      ],
+    },
     openGraph: {
       title,
       description,
