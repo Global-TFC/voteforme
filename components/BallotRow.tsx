@@ -61,48 +61,48 @@ export function BallotRow({
   }, [hasCandidate, isButtonDisabled, onVote, rowNumber]);
 
   return (
-    <div className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,6fr)_minmax(0,1fr)_minmax(0,2fr)] items-stretch border-b border-zinc-300 px-1 py-2 text-xs last:border-b-0">
-      <div className="flex items-center justify-center border-r border-zinc-300 text-sm font-semibold text-zinc-700">
+    <div className={`grid grid-cols-[minmax(0,0.8fr)_minmax(0,6fr)_minmax(0,1fr)_minmax(0,2fr)] items-stretch border-b border-zinc-300 px-1 text-xs last:border-b-0 ${hasCandidate ? 'py-3' : 'py-2'}`}>
+      <div className={`flex items-center justify-center border-r border-zinc-300 font-semibold text-zinc-700 ${hasCandidate ? 'text-base' : 'text-sm'}`}>
         {rowNumber}
       </div>
 
-      <div className="flex min-h-12 items-center border-r border-zinc-300 bg-white px-2 py-1">
+      <div className={`flex items-center border-r border-zinc-300 bg-white px-2 ${hasCandidate ? 'min-h-16 py-2' : 'min-h-12 py-1'}`}>
         {hasCandidate ? (
-          <div className="flex w-full items-center gap-2">
+          <div className="flex w-full items-center gap-3">
             {candidate?.photoUrl ? (
-              <div className="relative h-10 w-10 overflow-hidden rounded border border-zinc-200 bg-zinc-100">
+              <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded border border-zinc-200 bg-zinc-100">
                 <Image
                   src={candidate.photoUrl}
                   alt={candidate.name}
                   fill
                   className="object-cover"
-                  sizes="40px"
+                  sizes="56px"
                 />
               </div>
             ) : (
-              <div className="flex h-10 w-10 items-center justify-center rounded border border-dashed border-zinc-300 text-[10px] text-zinc-400">
+              <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded border border-dashed border-zinc-300 text-[10px] text-zinc-400">
                 Photo
               </div>
             )}
 
             <div className="flex flex-1 flex-col justify-center">
-              <span className="text-[13px] font-semibold leading-tight text-zinc-800 break-words">
+              <span className="text-[15px] font-semibold leading-tight text-zinc-800 break-words">
                 {candidate?.name}
               </span>
             </div>
 
             {candidate?.symbolUrl ? (
-              <div className="relative h-8 w-8 overflow-hidden rounded bg-zinc-50">
+              <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded bg-zinc-50">
                 <Image
                   src={candidate.symbolUrl}
                   alt={`${candidate.name} symbol`}
                   fill
                   className="object-contain p-0.5"
-                  sizes="32px"
+                  sizes="40px"
                 />
               </div>
             ) : (
-              <div className="flex h-8 w-8 items-center justify-center rounded border border-dashed border-zinc-300 text-[9px] text-zinc-400">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded border border-dashed border-zinc-300 text-[9px] text-zinc-400">
                 Symbol
               </div>
             )}
