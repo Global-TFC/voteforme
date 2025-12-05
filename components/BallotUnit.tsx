@@ -327,10 +327,10 @@ export function BallotUnit({ slug }: BallotUnitProps) {
               <h2 className="mb-2 text-base font-semibold text-zinc-900">Thank you for voting</h2>
               {votedCandidate ? (
                 <div className="mb-3 items-center justify-center gap-3">
-                  {votedCandidate.photoUrl && (
+                  {votedCandidate.posterUrl && (
                     <div className="relative overflow-hidden rounded border border-zinc-200 bg-zinc-100">
                       <img
-                        src={votedCandidate.photoUrl}
+                        src={votedCandidate.posterUrl}
                         alt={votedCandidate.name}
                         className="h-full w-full object-cover"
                       />

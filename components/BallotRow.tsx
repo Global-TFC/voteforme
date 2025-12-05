@@ -7,6 +7,7 @@ export type Candidate = {
   rowNumber: number;
   name: string;
   photoUrl?: string;
+  posterUrl?: string;
   symbolUrl?: string;
 };
 

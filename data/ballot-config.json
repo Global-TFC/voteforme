@@ -5,6 +5,7 @@
         "rowNumber": 1,
         "name": "Name",
         "photoUrl": "/unknown.jpg",
+        "posterUrl": "/unknown.jpg",
         "symbolUrl": "/football.png"
       }
     ],
@@ -13,6 +14,7 @@
         "rowNumber": 1,
         "name": "Favas",
         "photoUrl": "/favas.png",
+        "posterUrl": "/favas.png",
         "symbolUrl": "/football.png"
       }
     ],
@@ -21,6 +23,7 @@
         "rowNumber": 2,
         "name": "Rabeeh",
         "photoUrl": "/rabeeh.png",
+        "posterUrl": "/rabeeh.png",
         "symbolUrl": "/football.png"
       }
     ]
@@ -31,6 +34,7 @@
         "rowNumber": 1,
         "name": "കുനിയിൽ ഉസ്മാൻ ഷെരീഫ്",
         "photoUrl": "/usmanshareef.jpg",
+        "posterUrl": "/usmanshareefPoster.jpg",
         "symbolUrl": "/koni.png"
       }
     ]
