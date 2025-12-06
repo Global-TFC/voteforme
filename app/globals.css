@@ -44,6 +44,20 @@ h6 {
   }
 }
 
+
 .animate-slide-up {
   animation: slide-up 0.3s ease-out;
+}
+
+/* Animation Delays */
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
 }
