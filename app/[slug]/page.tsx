@@ -27,15 +27,12 @@ const configs = allConfigs as AllConfigs;
 
 // Get the base URL for OG images
 const getBaseUrl = () => {
-  // In production, use your actual domain
   if (process.env.NEXT_PUBLIC_BASE_URL) {
     return process.env.NEXT_PUBLIC_BASE_URL;
   }
-  // For Vercel deployments
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
-  // Fallback for development
   return "http://localhost:3000";
 };
 
@@ -54,11 +51,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const firstCandidate = config.ward?.[0] || config.block?.[0] || config.district?.[0];
   const baseUrl = getBaseUrl();
 
-  // Use the candidate's photo or a default OG image
-  const ogImage = firstCandidate?.photoUrl
-    ? `${baseUrl}${firstCandidate.photoUrl}`
+  // Use the candidate's photo URL with absolute path
+  const ogImageUrl = firstCandidate?.photoUrl
+    ? (firstCandidate.photoUrl.startsWith('http')
+      ? firstCandidate.photoUrl
+      : `${baseUrl}${firstCandidate.photoUrl}`)
     : `${baseUrl}/og-image.png`;
-
 
   const candidateNames = [
     ...(config.ward || []).map(c => c.name),
@@ -71,41 +69,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `Vote for: ${candidateNames}. Interactive Electronic Voting Machine Ballot Unit.`
     : "Interactive Electronic Voting Machine Ballot Unit";
 
-  // Determine the image type for favicon
-  const getImageType = (url: string) => {
-    if (url.endsWith('.png')) return 'image/png';
-    if (url.endsWith('.jpg') || url.endsWith('.jpeg')) return 'image/jpeg';
-    if (url.endsWith('.ico')) return 'image/x-icon';
-    if (url.endsWith('.svg')) return 'image/svg+xml';
-    return 'image/png'; // default
-  };
-
+  // Use candidate photo for favicon
   const faviconUrl = firstCandidate?.photoUrl || '/og-image.png';
-  const absoluteFaviconUrl = `${baseUrl}${faviconUrl}`;
 
   return {
     title,
     description,
     icons: {
-      icon: [
-        { url: faviconUrl, type: getImageType(faviconUrl) },
-      ],
-      apple: [
-        { url: faviconUrl, type: getImageType(faviconUrl) },
-      ],
+      icon: faviconUrl,
+      apple: faviconUrl,
     },
     openGraph: {
       title,
       description,
       url: `${baseUrl}/${slug}`,
-      siteName: "Vote for Me",
+      siteName: "Vote for Me - EVM Demo",
       images: [
         {
-          url: ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: title,
-          type: getImageType(ogImage),
         },
       ],
       locale: "en_US",
@@ -115,7 +99,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      images: [ogImageUrl],
+    },
+    // WhatsApp specific meta tags
+    other: {
+      'og:image': ogImageUrl,
+      'og:image:width': '1200',
+      'og:image:height': '630',
+      'og:image:alt': title,
     },
   };
 }
