@@ -12,6 +12,7 @@ type Candidate = {
   rowNumber: number;
   name: string;
   photoUrl: string;
+  posterUrl?: string;
   symbolUrl: string;
 };
 
@@ -51,11 +52,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const firstCandidate = config.ward?.[0] || config.block?.[0] || config.district?.[0];
   const baseUrl = getBaseUrl();
 
-  // Use the candidate's photo URL with absolute path
-  const ogImageUrl = firstCandidate?.photoUrl
-    ? (firstCandidate.photoUrl.startsWith('http')
-      ? firstCandidate.photoUrl
-      : `${baseUrl}${firstCandidate.photoUrl}`)
+  // Use posterUrl for WhatsApp/Social Media sharing (like YouTube thumbnail)
+  // This is the main image that will show when link is shared
+  const posterImageUrl = firstCandidate?.posterUrl
+    ? (firstCandidate.posterUrl.startsWith('http')
+      ? firstCandidate.posterUrl
+      : `${baseUrl}${firstCandidate.posterUrl}`)
     : `${baseUrl}/og-image.png`;
 
   const candidateNames = [
@@ -69,7 +71,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `Vote for: ${candidateNames}. Interactive Electronic Voting Machine Ballot Unit.`
     : "Interactive Electronic Voting Machine Ballot Unit";
 
-  // Use candidate photo for favicon
+  // Use candidate photo for favicon (browser tab icon)
   const faviconUrl = firstCandidate?.photoUrl || '/og-image.png';
 
   return {
@@ -86,7 +88,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "Vote for Me - EVM Demo",
       images: [
         {
-          url: ogImageUrl,
+          url: posterImageUrl,
           width: 1200,
           height: 630,
           alt: title,
@@ -99,14 +101,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title,
       description,
-      images: [ogImageUrl],
+      images: [posterImageUrl],
     },
-    // WhatsApp specific meta tags
+    // Additional meta tags for WhatsApp and other social platforms
     other: {
-      'og:image': ogImageUrl,
+      // Standard OG tags (WhatsApp uses these)
+      'og:image': posterImageUrl,
+      'og:image:secure_url': posterImageUrl,
+      'og:image:type': 'image/jpeg',
       'og:image:width': '1200',
       'og:image:height': '630',
       'og:image:alt': title,
+      // Additional tags for better compatibility
+      'og:url': `${baseUrl}/${slug}`,
+      'og:type': 'website',
+      'og:title': title,
+      'og:description': description,
+      // Twitter tags
+      'twitter:card': 'summary_large_image',
+      'twitter:image': posterImageUrl,
+      'twitter:title': title,
+      'twitter:description': description,
     },
   };
 }
