@@ -53,12 +53,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const baseUrl = getBaseUrl();
 
   // Use posterUrl for WhatsApp/Social Media sharing (like YouTube thumbnail)
-  // This is the main image that will show when link is shared
-  const posterImageUrl = firstCandidate?.posterUrl
-    ? (firstCandidate.posterUrl.startsWith('http')
-      ? firstCandidate.posterUrl
-      : `${baseUrl}${firstCandidate.posterUrl}`)
-    : `${baseUrl}/og-image.png`;
+  // Fallback priority: posterUrl → photoUrl → og-image.png
+  const getPosterImage = () => {
+    // First try: posterUrl (campaign poster)
+    if (firstCandidate?.posterUrl && firstCandidate.posterUrl.trim()) {
+      const posterUrl = firstCandidate.posterUrl.trim();
+      return posterUrl.startsWith('http')
+        ? posterUrl
+        : `${baseUrl}${posterUrl}`;
+    }
+
+    // Second try: photoUrl (candidate photo)
+    if (firstCandidate?.photoUrl && firstCandidate.photoUrl.trim()) {
+      const photoUrl = firstCandidate.photoUrl.trim();
+      return photoUrl.startsWith('http')
+        ? photoUrl
+        : `${baseUrl}${photoUrl}`;
+    }
+
+    // Final fallback: default og-image
+    return `${baseUrl}/og-image.png`;
+  };
+
+  const posterImageUrl = getPosterImage();
 
   const candidateNames = [
     ...(config.ward || []).map(c => c.name),
