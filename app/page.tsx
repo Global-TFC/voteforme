@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle2, Smartphone, Share2, Monitor, Vote, Zap, Users, Shield } from 'lucide-react';
+import { CheckCircle2, Smartphone, Share2, Monitor, Vote, Zap, Users, Shield, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -33,6 +33,11 @@ export default function Home() {
                 <h1 className="text-1xl sm:text-2xl lg:text-4xl  font-extrabold  leading-tight drop-shadow-lg">വാർഡ്ഡിലെ</h1>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight drop-shadow-lg">EVM ഡെമോ</h1>
                 <h1 className="text-1xl sm:text-2xl lg:text-4xl  font-extrabold  leading-tight drop-shadow-lg mb-4 sm:mb-6">ഓൺലൈനായക്കിയാലോ?</h1>
+
+                {/* Price Badge */}
+                <div className="inline-flex items-center gap-2 mb-4 sm:mb-6 bg-yellow-400 px-4 sm:px-6 py-3 rounded-full shadow-lg animate-pulse">
+                  <span className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900">ഇപ്പോൾ വെറും ₹250</span>
+                </div>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 opacity-95 max-w-2xl mx-auto lg:mx-0 drop-shadow">
                   നിങ്ങളുടെ സ്ഥാനാർത്ഥികളുടെ പേര്, ഫോട്ടോ, ചിഹ്നം EVM ൽ<br className="hidden sm:block" />
                   <span className="sm:hidden"> </span>കാണിച്ചു വോട്ട് കുറുമ്പയിൽ നടത്താം.
@@ -53,7 +58,7 @@ export default function Home() {
               </div>
 
               {/* Right Side - Phone Mockup */}
-              <div className="hidden md:block relative order-1 lg:order-2 flex justify-center items-center">
+              <div className="relative order-1 lg:order-2 flex justify-center items-center">
                 <div className="absolute inset-0 bg-blue-400 opacity-30 blur-3xl rounded-full scale-75"></div>
 
                 <div className="relative z-10 max-w-xs mx-auto">
@@ -314,7 +319,7 @@ export default function Home() {
                   <span className="text-sm text-blue-800 font-medium">ബന്ധപ്പെടുക</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6">
-                  Contact Us
+                  വെറും ₹250 മാത്രം
                 </h2>
                 <p className="text-base sm:text-lg text-gray-600">
                   കൂടുതൽ വിവരങ്ങൾക്കും സേവനം ആരംഭിക്കാനും ഞങ്ങളെ ബന്ധപ്പെടുക
@@ -322,14 +327,16 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-10">
-                <a href="tel:+918589053790" className="w-full sm:w-auto">
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    📞 +91 85890 53790
+                <a href="https://wa.me/918589053790" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                    <MessageCircle className="w-5 h-5" />
+                    +91 85890 53790
                   </Button>
                 </a>
-                <a href="tel:+919847395758" className="w-full sm:w-auto">
-                  <Button className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    📞 +91 98473 95758
+                <a href="https://wa.me/919847395758" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                    <MessageCircle className="w-5 h-5" />
+                    +91 98473 95758
                   </Button>
                 </a>
               </div>
@@ -383,6 +390,17 @@ export default function Home() {
           </div>
         </footer>
       </main>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/918589053790"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 animate-bounce"
+        aria-label="Contact us on WhatsApp"
+      >
+        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
+      </a>
     </>
   );
 }
